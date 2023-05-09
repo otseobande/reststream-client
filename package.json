@@ -1,0 +1,33 @@
+{
+  "name": "@reststream/reststream-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otseobande/reststream-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otseobande/reststream-client/issues"
+  },
+  "homepage": "https://github.com/otseobande/reststream-client#readme",
+  "dependencies": {
+    "socket.io-client": "^4.6.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "@types/uuid": "^9.0.1",
+    "jest": "^29.5.0",
+    "jest-websocket-mock": "^2.4.0",
+    "mock-socket": "^9.2.1",
+    "socket.io": "^4.6.1",
+    "ts-jest": "^29.1.0"
+  }
+}
