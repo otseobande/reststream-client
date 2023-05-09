@@ -1,6 +1,7 @@
 import { Socket, io } from "socket.io-client"
 import { v4 as uuidv4 } from 'uuid';
 
+type Headers = { [key: string]: string };
 class WebSocketHttpClient {
   socket;
 
@@ -33,7 +34,9 @@ class WebSocketHttpClient {
     });
   }
 
-  request({ method, url, data }: { method: string; url: string; data: any }) {
+  request({ method, url, data, headers }: { method: string; url: string; data: any, headers?: Headers }) {
+    const headersToSend = { ...this.headers, ...headers };
+
     return new Promise((resolve, reject) => {
       const messageId = uuidv4();
       this.responses.set(messageId, resolve);
@@ -43,30 +46,30 @@ class WebSocketHttpClient {
         method,
         url,
         data,
-        headers: this.headers
+        headers: headersToSend
       });
     });
   }
 
-  get(url: string) {
-    return this.request({ method: 'GET', url, data: undefined });
+  get(url: string, headers?: Headers) {
+    return this.request({ method: 'GET', url, data: undefined, headers});
   }
 
-  post(url: string, data: any) {
-    return this.request({ method: 'POST', url, data });
+  post(url: string, data: any, headers?: Headers) {
+    return this.request({ method: 'POST', url, data, headers });
   }
 
   // Implement other HTTP methods as needed...
-  patch(url: string, data: any) {
-    return this.request({ method: 'PATCH', url, data });
+  patch(url: string, data: any, headers?: Headers) {
+    return this.request({ method: 'PATCH', url, data, headers });
   }
 
-  delete(url: string, data: any) {
-    return this.request({ method: 'DELETE', url, data });
+  delete(url: string, data: any, headers?: Headers) {
+    return this.request({ method: 'DELETE', url, data, headers });
   }
 
-  put(url: string, data: any) {
-    return this.request({ method: 'PUT', url, data });
+  put(url: string, data: any, headers?: Headers) {
+    return this.request({ method: 'PUT', url, data, headers });
   }
 
   close() {

@@ -2,6 +2,8 @@
 
 A RESTful API client that operates over a WebSocket connection, providing a simple and efficient way to make HTTP-like requests. It is built on the Socket.io-client and provides an easy-to-use interface for making standard HTTP requests (GET, POST, PUT, PATCH, DELETE) over WebSockets.
 
+By providing a WebSocket-based interface that mimics the familiar HTTP request-response model, RestStream allows developers to reap the benefits of WebSocket communication without having to significantly refactor their existing codebase.
+
 ## Installation
 
 ```bash
